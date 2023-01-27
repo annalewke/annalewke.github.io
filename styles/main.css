@@ -1,0 +1,462 @@
+/* Inter Fonts */
+@font-face {
+    font-family: Inter;
+    font-style:  normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("Inter_font\Inter-Regular.woff") format("woff2"),
+         url("Inter_font\Inter-Regular.woff2") format("woff");
+}
+@font-face {
+    font-family: Inter;
+    font-style:  normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("Inter_font\Inter-Medium.woff") format("woff2"),
+         url("Inter_font\Inter-Medium.woff2") format("woff");
+}
+
+/* Background */  
+html {
+    scroll-behavior: smooth;
+}          
+body {
+    background-color: none;
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
+  }
+body::-webkit-scrollbar{
+    display: none;
+}
+/* Loading Screen */
+#loader-wrapper {
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #cbcbcb;
+    z-index: 500;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    overflow: hidden;
+}
+#loader {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#loader-circle {
+    position: absolute;
+    z-index: 600;
+    background: rgb(8, 8, 8);
+    box-shadow: 0 0 10px rgb(8, 8, 8),
+    0 0 20px rgb(8, 8, 8),
+    0 0 40px rgb(8, 8, 8),
+    0 0 60px rgb(8, 8, 8),
+    0 0 80px rgb(8, 8, 8),
+    0 0 100px rgb(8, 8, 8);
+    border-radius: 50%;
+    animation: progres 3s linear forwards;
+}
+
+@keyframes progres{
+    0%{
+      width: 0;
+      height: 0;
+    }
+    100%{
+        width: 2000px;
+        height: 2000px;
+    }
+}
+
+
+/* Hover effect */
+.container
+{
+    position: fixed;
+    z-index: 0;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background: rgb(8, 8, 8);
+    overflow: hidden;
+    mix-blend-mode: exclusion;
+}
+.container span
+{
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+}
+.container span::before
+{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background: white;
+    box-shadow: 0 0 10px white,
+    0 0 20px white,
+    0 0 40px white,
+    0 0 60px white,
+    0 0 80px white,
+    0 0 100px white;
+    border-radius: 50%;
+    transition: 1s;
+    transform: scale(0);
+}
+.container span:hover::before
+{
+    transition: 0s;
+    transform: scale(1);
+}
+.button-up {
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 70px;
+    height: 70px;
+    border: none;
+    background: none;
+    position: fixed;
+    left: 33px;
+    top: 60px;
+    cursor: pointer;
+}
+#anchoredBtn {
+    transform: translateY(50px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.05s ease-out;
+}
+#anchoredBtn.show {
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+    transition: 0.2s ease-in-out;
+}
+.hover_btn {
+    position: fixed;
+    visibility: hidden;
+}
+#anchoredBtn:hover .hover_btn {
+    visibility: visible;
+}
+
+/* Navigation */
+.navigator
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 138px;
+}
+p
+{
+    color: white;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+.link-contact {
+    background: none;
+    border: none;
+    color: white;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    text-decoration-line: none;
+    position: relative;
+    z-index: 100;
+}
+.link-contact:hover {
+    text-decoration-line: underline;
+    cursor: pointer;
+}
+
+/* Heading */
+.heading
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 50px 138px 90px 138px;
+    gap: 10px;
+}
+h1 {
+    color: white;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 90px;
+    margin: 0;
+}
+
+/* Down button */
+.down
+{
+    height: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+    padding: 0px 0px 100px 0px;
+}
+.down-button {
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    width: 70px;
+    height: 70px;
+    border: none;
+    background: none;
+    position: relative;
+    cursor: pointer;
+}
+#down-hover {
+    position: absolute;
+    visibility: hidden;
+    z-index: 3;
+}
+.down-button:hover #down-circle{
+    animation: scale 0.5s ease-in forwards;
+}
+@keyframes scale {
+    0%{
+        width: 70px;
+        height: 70px;
+    }
+    100%{
+        width: 0px;
+        height: 0px;
+    }
+}
+.down-button:hover #down-hover {
+    visibility: visible;
+}
+#down {
+    position: absolute;
+    z-index: 2;
+}
+#down-circle {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 10px white,
+    0 0 20px white,
+    0 0 40px white,
+    0 0 60px white,
+    0 0 80px white,
+    0 0 100px white;
+    animation: lig 3s infinite alternate linear;
+}
+@keyframes lig {
+    0%{
+        filter: brightness(40%);
+    }
+    100%{
+        filter: brightness(100%);
+    }
+}
+
+
+/* Work */
+.work
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 138px 0px;
+    gap: 60px;
+    z-index: 100;
+}
+.box
+{
+    background: none;
+    width: 100%;
+    height: fit-content;
+    position: relative;
+    cursor: none;
+}
+#box1 {
+    z-index: 5;
+}
+#box2 {
+    z-index: 4;
+}
+#box3 {
+    z-index: 3;
+}
+#box4 {
+    z-index: 2;
+}
+#box5 {
+    z-index: 1;
+}
+
+.gif {
+    height: fit-content;
+    width:100%;
+    position: relative;
+    margin:0 auto;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+}
+.gif video {
+    border-radius: 50px;
+    width: 100%;
+    height: auto;
+    top: 0;
+  } 
+.button
+{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 30px;
+    gap: 10px;
+    position: absolute;
+    height: fit-content;
+    left: 24px;
+    bottom: 24px;
+    background: #FFFFFF;
+    border-radius: 50px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.popup {
+    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    align-items: flex-start;
+    gap: 10px;
+    top: 0;
+    left: 0;
+}
+.popup img{
+    height: 40px;
+    width: auto;
+    border-radius: 50px;
+    padding: 3px;
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.popup h2{
+    color: black;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    border-radius: 20px;
+    padding: 14px 13px;
+    margin: 0;
+    background-color: #FFFFFF;
+    border: none;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    flex: none;
+    max-width: 350px;
+}
+
+
+/* Contact */
+.contact
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding: 390px 138px 30px;
+    gap: 25px;
+}
+h2 {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 48px;
+    display: flex;
+    align-items: flex-end;
+    color: #FFFFFF;
+}
+.links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+}
+.button_f {
+    z-index: 100;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 30px;
+    height: fit-content;
+    border-radius: 50px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #FFFFFF;
+    line-height: 24px;
+    border: 2px solid white;
+    background: none;
+    position: relative;
+    cursor: pointer;
+}
+.button_f:hover {
+    background-color: #FFFFFF;
+    color: black;
+
+}
+
+/* Footer */
+.footer
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 39px 138px;
+    gap: 10px;
+}
+.footer p{
+    color: grey;
+}
